@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="hello">
+
+        <properties>
+
+            <!-- 필수 속성 -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+            <!--키 생성 전략을 사용하려면 hibernate.id.new_generator_mappings=true 속성을 반드시 추가해야함
+            하이버네이트는 더 효과적이고 JPA 규격에 맞는 새로운 키 생성 전략을 개발했는데 과거 버전과의 호완성을 유지하려고 기본값이 false로 설정해놈-->
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <!-- ImprovedNamingStrategy hibernate 5.x부터 작동 안함-->
+            <!--<property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>-->
+
+        </properties>
+    </persistence-unit>
+
+</persistence>
